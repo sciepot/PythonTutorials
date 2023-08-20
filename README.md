@@ -1,1 +1,1 @@
-# PythonTutorials
+# Python туториал
