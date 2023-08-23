@@ -16,9 +16,12 @@
 '''
 
 address = input('Введите email адресс:') # строка, пример 'fake.address@gmail.com'
+# address = fake.address@gmail.com
 
 # Здесь начинается ваш код
-
+indexDog = address.find('@')
+address = address[:indexDog]
+address = address.upper()
 # Здесь заканчивается ваш код
 
 print(address) # строка, пример 'FAKE.ADDRESS'
