@@ -18,8 +18,10 @@
 '''
 def prog(l, r):
     ret = []
+    # if 'cheese' in l => True/False
+    
     # Здесь начинается ваш код
-     
+    
     # Здесь заканчивается ваш код
     return ret
 
@@ -33,5 +35,13 @@ rs = [['cheese', 'dough', 'ham'],
 ans = [[],
        ['dough', 'ham'],
        ['tomato']]
-for l, r in zip(ls, rs):
-    pri
+for i in range(3):
+    res = prog(ls[i], rs[i])
+    if res == ans[i]:
+        print(Fore.GREEN, f'Тест #{i + 1} пройден!')
+        print(Fore.GREEN, f'Правильный вывод:{ans[i]}')
+    else:
+        print(Fore.RED, f'Тест #{i + 1} ПРОВАЛЕН!!!')
+        print(Fore.RED, f'Полученный вывод:{res}')
+        print(Fore.RED, f'Ожидаемый вывод:{ans[i]}')
+    print(Fore.WHITE)

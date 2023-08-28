@@ -17,9 +17,9 @@
 Примеры:
     Введите ИИН:
     890214312348
-    Вам 34 года/лет
-    Вы мужчина
-    ИИН действителен
+    Вам 34 года/лет (age)
+    Вы мужчина (gender)
+    ИИН действителен (isValid)
 
     Введите ИИН:
     030914612344
@@ -30,7 +30,7 @@
     Введите ИИН:
     030914012346
     Вам 19 года/лет
-    Вы иностранец
+    Вы иностранец (isForeigner)
     ИИН действителен
 
     Введите ИИН:
@@ -54,11 +54,56 @@ curYear = 2023
 curMonth = 8
 curDay = 25
 
-if iin[7] == 3:
-    birthYear = 1900 + iin[0] * 10 + iin[1] # 1989
+age = 0
+isMale = False
+isForeigner = False
+
+isValid = False
+
+
+if iin[7] == 0:
+    birthYear = 1900 + iin[0] * 10 + iin[1]
+    age = 2023 - 1989
+    month = iin[2] * 10 + iin[3]
+    if month > curMonth:
+        age -= 1
+    elif month == curMonth:
+        birthDay = iin[4] * 10 + iin[5]
+        if birthDay > curDay:
+            age -= 1
+    isForeigner = True
+    
+elif iin[7] == 1:
+    birthYear = 1800 + iin[0] * 10 + iin[1] # 1989
     age = 2023 - 1989 # 34 33?
     month = iin[2] * 10 + iin[3]
     if month > curMonth:
         age -= 1
+    elif month == curMonth:
+        birthDay = iin[4] * 10 + iin[5]
+        if birthDay > curDay:
+            age -= 1
+    isMale = True
+elif iin[7] == 2:
+    birthYear = 1800 + iin[0] * 10 + iin[1] # 1989
+    age = 2023 - 1989 # 34 33?
+    month = iin[2] * 10 + iin[3]
+    if month > curMonth:
+        age -= 1
+    elif month == curMonth:
+        birthDay = iin[4] * 10 + iin[5]
+        if birthDay > curDay:
+            age -= 1
 
+n12 = calc(iin) # n12
+if n12 == iin[11]:
+    print(f'Вам {age} года/лет')
+    if isForeigner: print('Вы иностранец')
+    else:
+        if isMale: print(f'Вы мужчина')
+        else: print('Вы женщина')
+    
+    print('ИИН действителен')
+else: print('ИИН не действителен')
 
+    
