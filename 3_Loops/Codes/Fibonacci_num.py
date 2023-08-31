@@ -25,7 +25,24 @@ idx = 0 # Его индекс
 
 # Ваш
 
-idx = -1
+i = 1
+n = 13
 
-1 2 3 4 5 6 7
-1 1 2 3 5 8 13
+xi = 1
+xj = 1
+
+notFound = False
+
+while xi < n:
+    temp = xj
+    xj = xi + xj
+    xi = temp
+    i += 1
+    if xi == n:
+        print(i)
+        notFound = True
+        break
+    
+if not notFound:
+    print(-1)
+

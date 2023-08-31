@@ -21,7 +21,9 @@ def prog(l, r):
     # if 'cheese' in l => True/False
     
     # Здесь начинается ваш код
-    
+    for i in r: #i = 'cheese'
+        if not (i in l):
+            ret.append(i)
     # Здесь заканчивается ваш код
     return ret
 
